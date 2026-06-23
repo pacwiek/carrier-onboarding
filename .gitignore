@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Backend
+backend/.env
+backend/__pycache__/
+backend/venv/
+
+# Downloads
+downloads/
+
+# IDE
+.vscode/
+.idea/
+
+# Windows
+Thumbs.db
+Desktop.ini

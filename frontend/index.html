@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Trade Trans | Carrier Onboarding</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<header class="topbar">
+
+    <nav class="menu">
+
+        <a href="#" class="active">Onboarding</a>
+        <a href="#">Check dokumentów</a>
+        <a href="#">Historia</a>
+        <a href="#" id="aboutLink">O programie</a>
+
+    </nav>
+
+    <img
+        src="assets/logo.png"
+        class="logo"
+        alt="Trade Trans">
+
+</header>
+
+<main>
+
+<div class="workspace">
+
+    <!-- LEWA KOLUMNA -->
+    
+    <section class="card left-panel">
+
+     
+
+    <p class="subtitle">
+        Wyszukaj przewoźnika
+    </p>
+
+    <div class="identifier">
+
+        <div id="country" class="country-select">
+
+            <div class="country-value">
+
+                <span id="countryText">--</span>
+                <span id="countryArrow">▼</span>
+
+            </div>
+
+            <div id="countryList" class="country-list">
+
+                <input
+                    id="countrySearch"
+                    class="country-search"
+                    type="text"
+                    placeholder="Szukaj kraju...">
+
+            </div>
+
+        </div>
+
+        <input
+            id="identifier"
+            type="text"
+            placeholder="Numer identyfikacyjny">
+
+    </div>
+
+    <button
+        id="startButton"
+        class="primary-button">
+
+        <span id="buttonText">
+            Rozpocznij
+        </span>
+
+        <span id="buttonSpinner" class="spinner hidden"></span>
+
+    </button>
+
+    <!-- STATUS -->
+
+    <section
+        id="statusSection"
+        class="status"
+        style="display:none;">
+
+        <h2 id="statusTitle">
+            Status
+        </h2>
+
+        <div id="statusContent">
+            Gotowy
+        </div>
+
+        <!-- Pobrane dokumenty -->
+
+        <h2
+            id="documentsTitle"
+            class="section-title"
+            style="display:none;">
+
+            Pobrane dokumenty
+
+        </h2>
+
+        <div
+            id="downloadedFiles"
+            class="downloaded-files"
+            style="display:none;">
+
+        </div>
+
+         <button
+            id="openFolderButton"
+            class="primary-button"
+            style="display:none;">
+
+             Otwórz folder
+
+        </button>
+        
+        
+
+        <!-- Asystent -->
+
+        <button
+            id="verificationAssistantButton"
+            class="primary-button"
+            style="display:none;">
+
+            Asystent weryfikacji
+
+        </button>
+
+        <div
+            id="verificationPanel"
+            class="verification-panel"
+            style="display:none;">
+
+            <div class="upload-box">
+
+                <p><strong>Dodaj dodatkowe dokumenty</strong></p>
+
+                <p>
+                    Przeciągnij pliki tutaj
+                    <br>
+                    lub
+                </p>
+
+                <button
+                    id="chooseFilesButton"
+                    class="primary-button upload-button">
+
+                    Wybierz z dysku
+
+                </button>
+
+                <p class="upload-info">
+                    Obsługiwane formaty:<br>
+                    PDF • JPG • PNG • MSG (Outlook) • ZIP
+                </p>
+
+                <input
+                    type="file"
+                    id="verificationFiles"
+                    multiple
+                    accept=".pdf,.png,.jpg,.jpeg,.msg,.zip"
+                    hidden>
+
+            </div>
+
+            <div id="addMoreFiles" class="add-more-files" style="display:none;">
+              ➕ Dodaj kolejne dokumenty
+            </div>
+
+        </div>
+
+        <!-- Załączone dokumenty -->
+
+        <div
+            id="selectedFiles"
+            class="selected-files"
+            style="display:none;">
+
+        </div>
+
+       
+
+
+        <div
+    id="verificationButtons"
+    class="verification-buttons"
+    style="display:none;">
+
+    <button
+        id="chooseFilesButtonBottom"
+        class="primary-button">
+
+        Załącz
+
+    </button>
+
+    <button
+        id="startVerificationButton"
+        class="primary-button">
+
+        Analizuj
+
+    </button>
+
+</div>
+
+        <!-- Przyciski -->
+
+        
+
+    </section>
+
+       
+
+</section>   
+
+    
+    
+    <!-- PRAWA KOLUMNA -->
+
+    <section
+        id="resultsPanel"
+        class="right-panel"
+        style="display:none;">
+
+        
+
+        <h2 id="companyTitle">
+            Dane przewoźnika
+        </h2>
+
+        <div class="tabs">
+
+            <button
+                id="detailsTab"
+                class="tab-button active">
+
+                Szczegóły
+
+            </button>
+
+            <button
+                id="aiTab"
+                class="tab-button">
+
+                Asystent AI
+
+            </button>
+
+        </div>
+
+        <div
+            id="detailsPanel"
+            class="tab-panel">
+
+            <div
+                id="companyData"
+                class="company-data">
+
+                Brak danych.
+
+            </div>
+
+        </div>
+
+        <div
+            id="aiPanel"
+            class="tab-panel"
+            style="display:none;">
+
+            <div id="ai-content"></div>
+
+       
+
+    </section>
+
+</div>
+
+</main>
+
+<div id="aboutModal" class="modal" style="display:none;">
+
+    <div class="modal-content">
+
+        <h2>Carrier Onboarding 2.0</h2>
+
+        <p><strong>Wersja:</strong> 2.0</p>
+
+        <p><strong>Autor:</strong> Piotr Ćwiek</p>
+
+        <p>
+            © 2026 Piotr Ćwiek<br>
+            Wszelkie prawa zastrzeżone.
+        </p>
+
+        <hr>
+
+        <p><strong>Technologie</strong></p>
+
+        <ul>
+            <li>FastAPI</li>
+            <li>Playwright</li>
+            <li>OpenAI GPT-5</li>
+            <li>PostgreSQL</li>
+        </ul>
+
+        <button
+            id="closeAbout"
+            class="primary-button">
+
+            Zamknij
+
+        </button>
+
+    </div>
+
+</div>
+
+<script src="js/app.js"></script>
+
+ </div>
+
+	
+
+</body>
+
+</html>
