@@ -4,6 +4,14 @@
 // app.js
 // ======================================
 console.log("APP JS - NOWA WERSJA");
+
+
+const API_URL =
+    window.location.hostname === "127.0.0.1" ||
+    window.location.hostname === "localhost"
+        ? "${API_URL}"
+        : "https://carrier-onboarding.onrender.com";
+
 const countries = [
     { code: "PL", name: "Polska" },
     { code: "AL", name: "Albania" },
@@ -348,7 +356,7 @@ async function runOnboarding() {
 
     const response = await fetch(
 
-        `http://127.0.0.1:8000/company-data?country=${data.country}&tax_id=${data.identifier}`
+        `${API_URL}/company-data?country=${data.country}&tax_id=${data.identifier}`
 
     );
 
@@ -360,7 +368,7 @@ async function runOnboarding() {
 
      const pdfResponse = await fetch(
 
-          `http://127.0.0.1:8000/company-pdf?country=${data.country}&tax_id=${data.identifier}`
+          `${API_URL}/company-pdf?country=${data.country}&tax_id=${data.identifier}`
 
      );
 
@@ -566,7 +574,7 @@ openFolderButton.addEventListener("click", async () => {
 
         await fetch(
 
-            "http://127.0.0.1:8000/open-folder?path=" +
+            "${API_URL}/open-folder?path=" +
 
             encodeURIComponent(currentFolder)
 
@@ -665,7 +673,7 @@ chooseFilesButtonBottom.addEventListener("click", async () => {
     try {
 
         const response = await fetch(
-            "http://127.0.0.1:8000/verification/upload",
+            "${API_URL}/verification/upload",
             {
                 method: "POST",
                 body: formData
@@ -800,7 +808,7 @@ startVerificationButton.addEventListener("click", async () => {
     try {
 
         const analyzeResponse = await fetch(
-            "http://127.0.0.1:8000/verification/analyze",
+            "${API_URL}/verification/analyze",
             {
                 method: "POST",
                 body: analyzeData
